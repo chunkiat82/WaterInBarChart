@@ -1,7 +1,7 @@
 var assert = require("assert")
-var calculateWater = require("../calculateWater.js")
+var WaterBarChart = require("../WaterBarChart.js")
 
-describe('calculateWater()', function() {
+describe('WaterBarChart()', function() {
   var tests = [
     {args: [{h:3,w:1},{h:4,w:1},{h:5,w:1},{h:6,w:1}], expected: 6},
     {args: [{h:3,w:1},{h:4,w:1},{h:5,w:1},{h:6,w:1},{h:4,w:1},{h:3,w:1},{h:4,w:1}], expected: 7},
@@ -13,7 +13,7 @@ describe('calculateWater()', function() {
 
   tests.forEach(function(test) {
     it('correctly calculates ' + test.args.length + ' args', function() {
-      var res = calculateWater(test.args);
+      var res = new WaterBarChart(test.args).calculateWater();
       assert.equal(res, test.expected);
     });
   });
